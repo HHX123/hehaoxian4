@@ -1,0 +1,441 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* font-size: 1.5625vw;
+    font-family: "微软雅黑"; */
+}
+
+html,body{
+    height: 100%;
+    overflow: hidden;
+}
+
+.music{
+    width: 15vw;
+    height: 15vw;
+    top: 3vh;
+    right: 4vw;
+    border: 4px solid #ef1639;
+    border-radius: 50%;
+    position:fixed;
+    z-index: 5; 
+    background: white;
+}
+
+.music>img:first-of-type{
+    top: 24%;
+    right: 2.5%;
+    width: 28.5%;
+    position: absolute;
+    z-index: 1;
+}
+
+.music>img:last-of-type{
+    width: 79%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 0;
+}
+
+.music>img.play{
+    -webkit-animation: play_music 2s linear infinite;
+           animation: play_music 2s linear infinite;
+}
+
+@keyframes play_music{
+    0%{
+        -webkit-transform: rotate(0deg);
+               transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+               transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes play_music{
+    0%{
+        -webkit-transform: rotate(0deg);
+               transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+               transform: rotate(360deg);
+    }
+}
+
+.page{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.page>.background{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+#page1{
+    /* display: none; */
+}
+
+#page1>.background{
+    background: url("../image/p1_bg.jpg") no-repeat center center;
+    background-size:100%; 
+}
+
+#page1>.page1_lantern{
+    width: 45vw;
+    height: 71.2vh;
+    z-index: 0;
+    font-size: 3.506rem;
+    position: absolute;
+    top: -3.4%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background: url("../image/p1_lantern.png") no-repeat center bottom;
+    background-size: 100%;
+    text-align: center;
+}
+
+#page1>.page1_lantern p{
+    margin-top: 30vh;
+    font-size: 23px;
+    font-family: "微软雅黑";
+}
+
+#page1>.page1_lantern:before{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    background-color: #d60b3b;
+    opacity: 0.5;
+    content: "";
+    z-index: -1;
+    -webkit-box-shadow: 0 0 10vw 10vw #d60b3b;
+           box-shadow: 0 0 10vw 10vw #d60b3b;
+           -webkit-animation:lantern_light 0.5s infinite alternate; 
+            animation:lantern_light 0.5s infinite alternate; 
+}
+
+
+
+@-webkit-keyframes lantern_light{
+    0%{
+        opacity: .5; /*透明度*/
+        -webkit-transform: scale(.8,.8);/*缩放*/
+        transform: scale(.8,.8);/*缩放*/
+    }
+
+    100%{
+        opacity: 1; /*透明度*/
+    }
+}
+
+@keyframes lantern_light{
+    0%{
+        opacity: .5; /*透明度*/
+        -webkit-transform: scale(.8, .8);/*缩放*/
+        transform: scale(.8, .8);/*缩放*/
+    }
+
+    100%{
+        opacity: 1; /*透明度*/
+        background-color: red;
+        box-shadow:0 0 10vw 10vw red;
+    }
+}
+
+#page1>.page1_bottom_img{
+    position: absolute;
+    right:0;
+    left: 0;
+    bottom: 9vh;
+    background: url("../image/p1_imooc.png") no-repeat center center;
+    height: 27.656vw;
+    width: 18.63vh;
+    background-size: 100%;
+    margin: 0 auto;
+}
+
+#page1>.page1_bottom_txt{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: red;
+    font-family: "微软雅黑";
+}
+
+#page2{
+    display: none;
+    -webkit-transition: .5s;/*增加过渡效果，若没有此语句，页面会直接消失*/
+    transition: .5s;/*过渡效果*/
+} 
+
+#page2>.p2_start{
+    z-index: 10;
+    background-color: #ef1639;
+    -webkit-animation: starting 3s linear forwards;
+    animation: starting 3s linear forwards;
+}
+
+@-webkit-keyframes starting{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes starting{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+#page2.fadeout{
+   /*opacity: .3;  为什么加上透明度移除页面后music图片会错位 */
+    -webkit-transform: translate(0,100%);/*向下偏移100%*/
+            transform: translate(0,100%);/*向下偏移100%*/
+}
+
+#page2>.background{
+    background: url("../image/p2_bg.jpg") no-repeat center center;
+    background-size:100%; 
+}
+
+#page2>.page2_circle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin:  auto;
+    background: url("../image/p2_circle_outer.png") no-repeat center center;
+    background-size: 100%;
+    width: 59.375vw;
+    height: 59.375vw;
+    animation: outer_circle 1.5s linear 1.5s infinite;
+    -webkit-animation: outer_circle 1.5s linear 1.5s infinite;
+}
+
+@keyframes outer_circle{
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+
+@-webkit-keyframes outer_circle{
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+#page2>.page2_circle:before{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin:  auto;
+    content: "";
+    background: url("../image/p2_circle_middle.png") no-repeat center center;
+    background-size: 100%;
+    width: 45.625vw;
+    height: 45.625vw;
+    animation: middle_circle 1s linear 1s infinite;
+    -webkit-animation: middle_circle 1s linear 1s infinite;
+}
+
+@keyframes middle_circle{
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes middle_circle{
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+#page2>.page2_circle:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin:  auto;
+    content: "";
+    background: url("../image/p2_circle_inner.png") no-repeat center center;
+    background-size: 100%;
+    width: 39.9375vw;
+    height: 39.9375vw;
+    animation: inner_circle 1s linear 0.5s infinite;
+    -webkit-animation: inner_circle 1s linear 0.5s infinite;
+}
+
+@keyframes inner_circle{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(-720deg);
+        transform: rotate(-720deg);
+    }
+}
+
+@-webkit-keyframes inner_circle{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(-720deg);
+        transform: rotate(-720deg);
+    }
+}
+
+#page2>.page2_2019 {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    margin: auto;
+    width: 27.5vw;
+    height: 6.24vh;
+}
+.page2_2019 h1{
+
+    font-family: "微软雅黑";
+    color: white;
+    text-align: center;
+}
+
+#page3{
+    display: none;
+    -webkit-transition: 0.5s;
+            transition: 0.5s;
+}
+
+#page3.fadeIn{
+    -webkit-transform: translate(0,-100%);
+    transform: translate(0,-100%);
+}
+
+#page3>.background{
+    background: url("../image/p3_bg.jpg") no-repeat center center;
+    background-size:100%; 
+}
+
+#page3>.top{
+    width: 34.6875vw;
+    height: 6.327vh;
+    position: absolute;
+    top:7.82vw;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background: url("../image/p3_logo.png") no-repeat center center;
+    background-size: 100%;
+}
+
+#page3>.mid_mid{
+    width: 48.125vw;
+    height: 50vh;
+    position: absolute;
+    top:21vw;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background: url("../image/p3_title.png") no-repeat center center;
+    background-size: 100%;
+}
+
+#page3>.mid_left{
+    width: 22.8125vw;
+    height: 41.652vh;
+    position: absolute;
+    top:25.48vw;
+    left: 3.75vw;
+    background: url("../image/p3_couplet_second.png") no-repeat center center;
+    background-size: 100%;
+}
+
+#page3>.mid_right{
+    width: 22.8125vw;
+    height: 41.652vh;
+    position: absolute;
+    top:25.48vw;
+    right: 3.75vw;
+    background: url("../image/p3_couplet_first.png") no-repeat center center;
+    background-size: 100%;
+}
+
+#page3>.bottom{
+    width: 32vw;
+    height: 32vh;
+    position: absolute;
+    right: 0;
+    bottom:10vh;
+    left: 0;
+    margin: auto;
+    background: url("../image/p3_blessing.png") no-repeat center center;
+    background-size: 100%;
+    animation: blessing 3s linear infinite;
+    -webkit-animation: blessing 3s linear infinite;
+}
+
+@keyframes blessing{
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+        -webkit-transform: rotate36(0deg);
+    }
+}
